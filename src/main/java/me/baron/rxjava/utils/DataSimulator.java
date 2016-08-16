@@ -1,6 +1,7 @@
 package me.baron.rxjava.utils;
 
 
+import me.baron.rxjava.models.Location;
 import me.baron.rxjava.models.House;
 
 import java.util.ArrayList;
@@ -16,6 +17,11 @@ import java.util.List;
  */
 public class DataSimulator {
 
+    /**
+     * 构造一组房源信息
+     *
+     * @return 房源列表
+     */
     public static List<House> getHouses() {
 
         List<House> houses = new ArrayList<>();
@@ -29,5 +35,34 @@ public class DataSimulator {
         houses.add(new House(85000, 222, "中粮·海景壹号", "南北通透，豪华五房"));
 
         return houses;
+    }
+
+    /**
+     * 构造一组小区名
+     *
+     * @return 小区名称列表
+     */
+    public static List<String> getCommunityNames() {
+
+        List<String> communityNames = new ArrayList<>();
+        communityNames.add("竹园新村");
+        communityNames.add("康桥半岛");
+        communityNames.add("中粮·海景壹号");
+        communityNames.add("浦江名苑");
+        communityNames.add("南辉小区");
+        return communityNames;
+    }
+
+    /**
+     * 构造一组经纬度
+     *
+     * @return 经纬度列表
+     */
+    public static List<Location> getLocations() {
+        List<Location> locations = new ArrayList<>();
+        locations.add(new Location(21.827, 23.323));
+        locations.add(new Location(11.923, 16.309));
+        locations.add(new Location(22.273, 53.623));
+        return locations;
     }
 }
