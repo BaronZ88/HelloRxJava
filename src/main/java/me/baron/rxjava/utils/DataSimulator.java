@@ -1,6 +1,7 @@
 package me.baron.rxjava.utils;
 
 
+import me.baron.rxjava.models.Community;
 import me.baron.rxjava.models.Location;
 import me.baron.rxjava.models.House;
 
@@ -35,6 +36,44 @@ public class DataSimulator {
         houses.add(new House(85000, 222, "中粮·海景壹号", "南北通透，豪华五房"));
 
         return houses;
+    }
+
+    /**
+     * 构造一组小区信息
+     * @return 小区列表
+     */
+    public static List<Community> getCommunities() {
+
+        List<Community> communities = new ArrayList<>();
+        Community community1 = new Community();
+        community1.setCommunityId(1);
+        community1.setCommunityName("竹园新村");
+        List<House> houses1 = new ArrayList<>();
+        houses1.add(new House(35000, 65, "竹园新村", "满五唯一，黄金地段"));
+        houses1.add(new House(32000, 66, "竹园新村", "一楼自带小花园"));
+        community1.setHouses(houses1);
+        communities.add(community1);
+
+        Community community2 = new Community();
+        community2.setCommunityId(2);
+        community2.setCommunityName("中粮·海景壹号");
+        List<House> houses2 = new ArrayList<>();
+        houses2.add(new House(65000, 250, "中粮·海景壹号", "中粮海景壹号新出大平层！总价4500W起"));
+        houses2.add(new House(90000, 235, "中粮·海景壹号", "毗邻汤臣一品"));
+        houses2.add(new House(75000, 350, "中粮·海景壹号", "顶级住宅，给您总统般尊贵体验"));
+        houses2.add(new House(85000, 222, "中粮·海景壹号", "南北通透，豪华五房"));
+        community2.setHouses(houses2);
+        communities.add(community2);
+
+        Community community3 = new Community();
+        community3.setCommunityId(3);
+        community3.setCommunityName("浦江名苑");
+        List<House> houses3 = new ArrayList<>();
+        houses3.add(new House(38000, 102, "浦江名苑", "高层湖景房,南北通透,三室两厅"));
+        community3.setHouses(houses3);
+        communities.add(community3);
+
+        return communities;
     }
 
     /**

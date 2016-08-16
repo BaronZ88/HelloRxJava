@@ -1,4 +1,4 @@
-package me.baron.rxjava;
+package me.baron.rxjava.merging;
 
 import me.baron.rxjava.models.House;
 import me.baron.rxjava.utils.DataSimulator;

@@ -1,10 +1,10 @@
-package me.baron.rxjava;
+package me.baron.rxjava.merging;
 
 import rx.Observable;
 import rx.Observer;
 import rx.functions.Func1;
+import rx.functions.Func2;
 
-import java.io.Serializable;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -15,12 +15,12 @@ import java.util.concurrent.TimeUnit;
  * @author baronzhang (baron[dot]zhanglei[at]gmail[dot]com)
  *         16/8/16
  */
-public class OperatorMergeTest {
+public class OperatorZipTest {
 
     public static void main(String[] args) {
 
         String[] letters = new String[]{"A", "B", "C", "D", "E", "F", "G", "H"};
-        Observable<String> letterSequence = Observable.interval(300, TimeUnit.MILLISECONDS)
+        Observable<String> letterSequence = Observable.interval(120, TimeUnit.MILLISECONDS)
                 .map(new Func1<Long, String>() {
                     @Override
                     public String call(Long position) {
@@ -28,25 +28,29 @@ public class OperatorMergeTest {
                     }
                 }).take(letters.length);
 
-        Observable<Long> numberSequence = Observable.interval(500, TimeUnit.MILLISECONDS).take(5);
+        Observable<Long> numberSequence = Observable.interval(200, TimeUnit.MILLISECONDS).take(5);
 
-        Observable.merge(letterSequence, numberSequence)
-                .subscribe(new Observer<Serializable>() {
-                    @Override
-                    public void onCompleted() {
-                        System.exit(0);
-                    }
+        Observable.zip(letterSequence, numberSequence, new Func2<String, Long, String>() {
+            @Override
+            public String call(String letter, Long number) {
+                return letter + number;
+            }
+        }).subscribe(new Observer<String>() {
+            @Override
+            public void onCompleted() {
+                System.exit(0);
+            }
 
-                    @Override
-                    public void onError(Throwable e) {
-                        System.out.println("Error:" + e.getMessage());
-                    }
+            @Override
+            public void onError(Throwable e) {
+                System.out.println("Error:" + e.getMessage());
+            }
 
-                    @Override
-                    public void onNext(Serializable serializable) {
-                        System.out.print(serializable.toString() + " ");
-                    }
-                });
+            @Override
+            public void onNext(String result) {
+                System.out.print(result + " ");
+            }
+        });
 
         try {
             Thread.sleep(Integer.MAX_VALUE);

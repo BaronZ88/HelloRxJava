@@ -1,4 +1,4 @@
-package me.baron.rxjava;
+package me.baron.rxjava.merging;
 
 import rx.Observable;
 import rx.Observer;
