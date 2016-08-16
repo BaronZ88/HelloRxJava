@@ -34,7 +34,6 @@ public class OperatorMergeTest {
                 .subscribe(new Observer<Serializable>() {
                     @Override
                     public void onCompleted() {
-                        System.out.println("Completed!");
                         System.exit(0);
                     }
 

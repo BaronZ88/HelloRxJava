@@ -51,7 +51,6 @@ public class OperatorCombineLatestTest {
                 }).subscribe(new Observer<String>() {
                     @Override
                     public void onCompleted() {
-                        System.out.println("Completed!");
                         System.exit(0);
                     }
 
