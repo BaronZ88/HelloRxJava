@@ -13,7 +13,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * <p>GitHub:   <a href="https://github.com/BaronZ88"></p>
  * <p>知乎专栏:  <a href="https://zhuanlan.zhihu.com/baron"></p>
- * <p>个人博客:  <a href="http://www.jianshu.com/users/cfdc52ea3399/latest_articles"></p>
+ * <p>个人博客:  <a href="http://www.jianshu.com/users/cfdc52ea3399"></p>
  *
  * @author baronzhang (baron[dot]zhanglei[at]gmail[dot]com)
  *         16/8/16
